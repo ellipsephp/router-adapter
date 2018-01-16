@@ -7,8 +7,6 @@ use Psr\Http\Message\ResponseInterface;
 
 use Interop\Http\Server\RequestHandlerInterface;
 
-use Ellipse\Router\Exceptions\HandlerIsNotARequestHandlerException;
-
 class RouterRequestHandler implements RequestHandlerInterface
 {
     /**

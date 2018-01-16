@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Interop\Http\Server\RequestHandlerInterface;
 
 use Ellipse\Router\MatchedRequestHandler;
-use Ellipse\Router\Exceptions\HandlerIsNotARequestHandlerException;
+use Ellipse\Router\Exceptions\RequestHandlerTypeException;
 
 describe('MatchedRequestHandler', function () {
 
@@ -59,7 +59,7 @@ describe('MatchedRequestHandler', function () {
 
         context('when the delegate is not an instance of RequestHandlerInterface', function () {
 
-            it('should throw a HandlerIsNotARequestHandlerException', function () {
+            it('should throw a RequestHandlerTypeException', function () {
 
                 $delegate = new class {};
 
@@ -71,7 +71,7 @@ describe('MatchedRequestHandler', function () {
 
                 };
 
-                $exception = new HandlerIsNotARequestHandlerException($delegate);
+                $exception = new RequestHandlerTypeException($delegate);
 
                 expect($test)->toThrow($exception);
 

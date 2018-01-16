@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 
 use Interop\Http\Server\RequestHandlerInterface;
 
-use Ellipse\Router\Exceptions\HandlerIsNotARequestHandlerException;
+use Ellipse\Router\Exceptions\RequestHandlerTypeException;
 
 class MatchedRequestHandler implements RequestHandlerInterface
 {
@@ -43,7 +43,7 @@ class MatchedRequestHandler implements RequestHandlerInterface
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface
-     * @throws \Ellipse\Router\Exceptions\HandlerIsNotARequestHandlerException
+     * @throws \Ellipse\Router\Exceptions\RequestHandlerTypeException
      */
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
@@ -59,6 +59,6 @@ class MatchedRequestHandler implements RequestHandlerInterface
 
         }
 
-        throw new HandlerIsNotARequestHandlerException($this->delegate);
+        throw new RequestHandlerTypeException($this->delegate);
     }
 }
