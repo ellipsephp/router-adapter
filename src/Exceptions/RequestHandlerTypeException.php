@@ -4,7 +4,7 @@ namespace Ellipse\Router\Exceptions;
 
 use RuntimeException;
 
-use Interop\Http\Server\RequestHandlerInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 class RequestHandlerTypeException extends RuntimeException implements RouterAdapterExceptionInterface
 {
