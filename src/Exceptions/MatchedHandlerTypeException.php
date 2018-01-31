@@ -2,17 +2,17 @@
 
 namespace Ellipse\Router\Exceptions;
 
-use RuntimeException;
+use TypeError;
 
 use Psr\Http\Server\RequestHandlerInterface;
 
-class MatchedHandlerTypeException extends RuntimeException implements RouterAdapterExceptionInterface
+class MatchedHandlerTypeException extends TypeError implements RouterAdapterExceptionInterface
 {
-    public function __construct($handler)
+    public function __construct($value)
     {
         $template = "The handler matched by the router has type %s - object implementing %s expected";
 
-        $type = is_object($handler) ? get_class($handler) : gettype($handler);
+        $type = is_object($value) ? get_class($value) : gettype($value);
 
         $msg = sprintf($template, $type, RequestHandlerInterface::class);
 
