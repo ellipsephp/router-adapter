@@ -7,6 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 use Ellipse\Router\RouterRequestHandler;
+use Ellipse\Router\RouterAdapterFactoryInterface;
 use Ellipse\Router\RouterAdapterInterface;
 use Ellipse\Router\MatchedRequestHandler;
 
@@ -14,9 +15,9 @@ describe('RouterRequestHandler', function () {
 
     beforeEach(function () {
 
-        $this->adapter = mock(RouterAdapterInterface::class);
+        $this->factory = mock(RouterAdapterFactoryInterface::class);
 
-        $this->router = new RouterRequestHandler($this->adapter->get());
+        $this->router = new RouterRequestHandler($this->factory->get());
 
     });
 
@@ -37,6 +38,10 @@ describe('RouterRequestHandler', function () {
 
             $this->request1->getMethod->returns('get');
             $this->request1->withMethod->returns($this->request2);
+
+            $this->adapter = mock(RouterAdapterInterface::class);
+
+            $this->factory->__invoke->returns($this->adapter);
 
             $this->handler = mock(MatchedRequestHandler::class);
 

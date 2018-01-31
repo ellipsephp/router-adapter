@@ -16,25 +16,26 @@ class RouterRequestHandler implements RequestHandlerInterface
     const METHOD_INPUT_KEY = '_method';
 
     /**
-     * The router adapter.
+     * The router adapter factory.
      *
-     * @var \Ellipse\Router\RouterAdapterInterface
+     * @var \Ellipse\Router\RouterAdapterFactoryInterface
      */
-    private $adapter;
+    private $factory;
 
     /**
-     * Set up a router request handler with the given router adapter.
+     * Set up a router request handler with the given router adapter factory.
      *
-     * @param \Ellipse\Router\RouterAdapterInterface $adapter
+     * @param \Ellipse\Router\RouterAdapterFactoryInterface $factory
      */
-    public function __construct(RouterAdapterInterface $adapter)
+    public function __construct(RouterAdapterFactoryInterface $factory)
     {
-        $this->adapter = $adapter;
+        $this->factory = $factory;
     }
 
     /**
-     * Update the request mathod, use the adapter to get a match, then proxy the
-     * match handler ->handle() method.
+     * Update the request method then use the factory to get a router adapter
+     * and this adapter to match a request handler. Finally proxy this matched
+     * request handler ->handle() method.
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface
@@ -47,6 +48,6 @@ class RouterRequestHandler implements RequestHandlerInterface
 
         $request = $request->withMethod($method);
 
-        return $this->adapter->match($request)->handle($request);
+        return ($this->factory)()->match($request)->handle($request);
     }
 }
