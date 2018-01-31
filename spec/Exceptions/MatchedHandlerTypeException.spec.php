@@ -1,13 +1,13 @@
 <?php
 
 use Ellipse\Router\Exceptions\RouterAdapterExceptionInterface;
-use Ellipse\Router\Exceptions\RequestHandlerTypeException;
+use Ellipse\Router\Exceptions\MatchedHandlerTypeException;
 
-describe('RequestHandlerTypeException', function () {
+describe('MatchedHandlerTypeException', function () {
 
     it('should implement RouterAdapterExceptionInterface', function () {
 
-        $test = new RequestHandlerTypeException('handler');
+        $test = new MatchedHandlerTypeException('handler');
 
         expect($test)->toBeAnInstanceOf(RouterAdapterExceptionInterface::class);
 

@@ -6,7 +6,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-use Ellipse\Router\Exceptions\RequestHandlerTypeException;
+use Ellipse\Router\Exceptions\MatchedHandlerTypeException;
 
 class MatchedRequestHandler implements RequestHandlerInterface
 {
@@ -42,7 +42,7 @@ class MatchedRequestHandler implements RequestHandlerInterface
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface
-     * @throws \Ellipse\Router\Exceptions\RequestHandlerTypeException
+     * @throws \Ellipse\Router\Exceptions\MatchedHandlerTypeException
      */
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
@@ -58,6 +58,6 @@ class MatchedRequestHandler implements RequestHandlerInterface
 
         }
 
-        throw new RequestHandlerTypeException($this->delegate);
+        throw new MatchedHandlerTypeException($this->delegate);
     }
 }
