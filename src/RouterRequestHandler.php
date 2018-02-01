@@ -34,8 +34,8 @@ class RouterRequestHandler implements RequestHandlerInterface
 
     /**
      * Update the request method then use the factory to get a router adapter
-     * and this adapter to match a request handler. Finally proxy this matched
-     * request handler ->handle() method.
+     * and use this adapter to match a request handler. Finally proxy this
+     * matched request handler ->handle() method.
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface

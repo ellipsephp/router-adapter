@@ -6,10 +6,10 @@ use RuntimeException;
 
 class MethodNotAllowedException extends RuntimeException implements RouterAdapterExceptionInterface
 {
-    public function __construct(string $uri, array $allowed_methods)
+    public function __construct(string $method, string $uri, array $allowed)
     {
-        $msg = "The methods allowed for this path %s are [%s].";
+        $msg = "No route matching [%s, %s] - only [%s] allowed";
 
-        parent::__construct(sprintf($msg, $uri, implode(', ', $allowed_methods)));
+        parent::__construct(sprintf($msg, $method, $uri, implode(', ', $allowed)));
     }
 }

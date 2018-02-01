@@ -29,8 +29,9 @@ class RouterMiddleware implements MiddlewareInterface
     }
 
     /**
-     * Try to proxy the router ->handle() method. Proxy the given request
-     * handler when the router throws a not found exception.
+     * Try to proxy the router request handler ->handle() method. Proxy the
+     * given request handler when the router request handler throws a not found
+     * exception.
      *
      * @param \Psr\Http\Message\ServerRequestInterface  $request
      * @param \Psr\Http\Server\RequestHandlerInterface  $handler

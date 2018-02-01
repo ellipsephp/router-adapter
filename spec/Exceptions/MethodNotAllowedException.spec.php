@@ -7,7 +7,7 @@ describe('MethodNotAllowedException', function () {
 
     it('should implement RouterAdapterExceptionInterface', function () {
 
-        $test = new MethodNotAllowedException('/path', ['GET', 'POST']);
+        $test = new MethodNotAllowedException('GET', '/path', ['POST', 'PUT']);
 
         expect($test)->toBeAnInstanceOf(RouterAdapterExceptionInterface::class);
 

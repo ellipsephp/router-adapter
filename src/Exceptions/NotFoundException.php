@@ -6,10 +6,10 @@ use RuntimeException;
 
 class NotFoundException extends RuntimeException implements RouterAdapterExceptionInterface
 {
-    public function __construct(string $method, string $uri)
+    public function __construct(string $uri)
     {
-        $msg = "No route was found matching this http request [%s, %s].";
+        $msg = "No route matching %s";
 
-        parent::__construct(sprintf($msg, $method, $uri));
+        parent::__construct(sprintf($msg, $uri));
     }
 }

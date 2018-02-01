@@ -7,7 +7,7 @@ describe('NotFoundException', function () {
 
     it('should implement RouterAdapterExceptionInterface', function () {
 
-        $test = new NotFoundException('GET', '/path');
+        $test = new NotFoundException('/path');
 
         expect($test)->toBeAnInstanceOf(RouterAdapterExceptionInterface::class);
 

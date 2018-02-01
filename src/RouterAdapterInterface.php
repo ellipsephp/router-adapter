@@ -7,7 +7,7 @@ use Psr\Http\Message\ServerRequestInterface;
 interface RouterAdapterInterface
 {
     /**
-     * Return a match for the given request.
+     * Return a matched request handler for the given request.
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @return \Ellipse\Router\MatchedRequestHandler

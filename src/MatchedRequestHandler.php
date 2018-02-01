@@ -11,14 +11,14 @@ use Ellipse\Router\Exceptions\MatchedHandlerTypeException;
 class MatchedRequestHandler implements RequestHandlerInterface
 {
     /**
-     * The delegate.
+     * The value matched by the router.
      *
      * @var mixed
      */
     private $delegate;
 
     /**
-     * The matched attributes.
+     * The attributes name => value pairs matched by the router.
      *
      * @var array
      */
@@ -37,8 +37,8 @@ class MatchedRequestHandler implements RequestHandlerInterface
     }
 
     /**
-     * Proxy the delegate ->handle() method when it is an implementation of
-     * request handler interface or fail otherwise.
+     * Create a new request with the attributes and proxy the matched request
+     * handler ->handle() method with this new request.
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface

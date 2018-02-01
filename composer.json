@@ -1,11 +1,13 @@
 {
     "name": "ellipse/router-adapter",
     "type": "library",
-    "description": "Common classes for the ellipse router adapters",
+    "description": "Common classes for ellipse router adapters",
     "keywords": [
         "psr-7",
         "psr-15",
-        "router"
+        "router",
+        "middleware",
+        "request-handler"
     ],
     "license": "MIT",
     "homepage": "https://github.com/ellipsephp/router-adapter",
